@@ -23,7 +23,8 @@ gaps, and missing bounds before an agent runs. It runs LintLang 0.8.0 locally an
 reports actionable finding codes and locations without editing files or calling
 a model. This adapts the [upstream LintLang audit
 skill](https://github.com/hermes-labs-ai/lintlang/tree/c0cab00048220286858f227aaf4b13cc043f718b/integrations/claude-code/skills/lintlang-audit);
-the Apache-2.0 notice is retained in [references/LICENSE.txt](references/LICENSE.txt).
+the Apache-2.0 notice is retained at the pinned
+[upstream LICENSE](https://github.com/hermes-labs-ai/lintlang/blob/c0cab00048220286858f227aaf4b13cc043f718b/LICENSE).
 
 ## When to Use
 
