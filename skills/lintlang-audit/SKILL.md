@@ -19,7 +19,7 @@ license_source: https://github.com/hermes-labs-ai/lintlang/blob/c0cab00048220286
 
 Use this skill to check a named agent instruction file, tool definition, or
 supported Python prompt for ambiguous choices, conflicting requirements, schema
-gaps, and missing bounds before an agent runs. It runs LintLang 0.8.0 locally and
+gaps, and missing bounds before an agent runs. It runs LintLang 0.8.2 locally and
 reports actionable finding codes and locations without editing files or calling
 a model. This adapts the [upstream LintLang audit
 skill](https://github.com/hermes-labs-ai/lintlang/tree/c0cab00048220286858f227aaf4b13cc043f718b/integrations/claude-code/skills/lintlang-audit);
@@ -40,19 +40,19 @@ behavior are outside this skill.
 ## How It Works
 
 1. Check the runner with `lintlang --version`. Use it when it reports the
-   released `0.8.0` version. If it is missing or reports any other version
+   released `0.8.2` version. If it is missing or reports any other version
    and `uvx` exists, use
-   `uvx --from lintlang==0.8.0 lintlang --version`, then keep that exact runner
+   `uvx --from lintlang==0.8.2 lintlang --version`, then keep that exact runner
    for the scan. `uvx` may fetch the pinned package on first use; the scan
    itself reads local files and makes no network or model call. If neither
-   runner provides version `0.8.0`, report the missing prerequisite. Do not install a package or
+   runner provides version `0.8.2`, report the missing prerequisite. Do not install a package or
    change the user's environment as part of an audit.
 2. Scan only the named paths and request JSON. Pass each path as one quoted
    argument; `--` protects filenames beginning with a hyphen:
 
    ```bash
    lintlang scan --format json -- "path with spaces/agent.yaml"
-   uvx --from lintlang==0.8.0 lintlang scan --format json -- "path with spaces/agent.yaml"
+   uvx --from lintlang==0.8.2 lintlang scan --format json -- "path with spaces/agent.yaml"
    ```
 
    Use only the command matching the runner selected in step 1. Add
@@ -76,14 +76,14 @@ behavior are outside this skill.
 For a named agent config, run a read-only audit and inspect the JSON verdict:
 
 ```bash
-uvx --from lintlang==0.8.0 lintlang scan --format json -- "configs/support agent.yaml"
+uvx --from lintlang==0.8.2 lintlang scan --format json -- "configs/support agent.yaml"
 ```
 
 For a CI-style gate over a named instruction file, request the threshold
 explicitly and still inspect `input_error` in the JSON:
 
 ```bash
-uvx --from lintlang==0.8.0 lintlang scan --format json --fail-on fail -- "AGENTS.md"
+uvx --from lintlang==0.8.2 lintlang scan --format json --fail-on fail -- "AGENTS.md"
 ```
 
 ## Limitations
